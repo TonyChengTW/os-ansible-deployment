@@ -24,6 +24,7 @@ apt_container_repos:
 container_packages:
   - elasticsearch
   - openjdk-7-jre
+  - curator
 
 service_pip_dependencies:
   - requests
