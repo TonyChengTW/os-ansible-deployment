@@ -16,7 +16,10 @@
 - name: "Setup the Elasticsearch Curator cron job"
   cron:
     - name: ""
-    - minute: */5
+    - minute: 0
+    - hour: 0
     - user: "root"
-    - job: "{{ recon_cron_path.stdout }} /etc/swift/object-server/object-server.conf"
+      - job: "/usr/local/bin/curator 
+         --host {{ hostvars[groups['elasticsearch'][0]]['container_address' ]}} delete 
+         --older_than {{ elasticsearch_prune_days }}"
     - cron_file: "elasticsearch_curator"
