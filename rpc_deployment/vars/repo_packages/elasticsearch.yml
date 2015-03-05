@@ -22,12 +22,12 @@ apt_container_repos:
   - { repo: "deb {{ elasticsearch_repo_url }} stable main", state: "present"}
 
 container_packages:
-  - elasticsearch
   - openjdk-7-jre
   - elasticsearch
-  - elasticsearch_curator
 
 service_pip_dependencies:
   - requests
   - python-memcached
   - pycrypto
+  - elasticsearch
+  - elasticsearch-curator
